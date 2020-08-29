@@ -111,6 +111,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100px",
     width: "100%",
     margin: "10px 0",
+    
     display: "flex",
   },
   nameAndOnlineStatusWrapper: {
