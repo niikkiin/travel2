@@ -1,14 +1,18 @@
 import React from "react";
 
-import MessagePanel from "components/messages/MessagePanel";
-import SendMessage from "components/messages/SendMessage";
+import Navbar from "components/navbar/Navbar";
+
+import { BrowserRouter as Router} from 'react-router-dom';
+
+// pages
+import Messages from "pages/messages/Messages";
 
 function App() {
   return (
-    <div class="container mx-auto mt-6 w-2/4">
-      <MessagePanel />
-      <SendMessage />
-    </div>
+    <Router>
+      <Navbar />
+      <Messages />
+    </Router>
   );
 }
 export default App;

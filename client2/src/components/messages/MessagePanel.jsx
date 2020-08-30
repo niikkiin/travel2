@@ -29,7 +29,7 @@ const MessagePanel = (props) => {
     );
   };
   return (
-    <div className="block" style={{ height: "calc(100vh - 270px)" }}>
+    <div className="block sm:h-full sm:w-full" style={{ height: "calc(100vh - 340px)" }}>
       <MessageHeader />
       <div className="container h-full p-4 mt-4 overflow-auto flex flex-col">
         <div className="mt-auto">
