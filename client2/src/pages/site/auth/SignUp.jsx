@@ -80,7 +80,7 @@ const SignUp = (props) => {
       <div className="relative my-4 mt-8 focus-within:border-blue-500">
         <input
           id="email"
-          type="email"
+          type="text"
           value={email}
           name="email"
           placeholder=" "
@@ -91,7 +91,7 @@ const SignUp = (props) => {
           htmlFor="email"
           className="absolute top-0 -z-1 mt-2 ml-2 duration-500 text-gray-500"
         >
-          Email Address
+          Email
         </label>
       </div>
       {/* SECTION PASSWORD */}
@@ -175,7 +175,7 @@ const SignUp = (props) => {
       <div className="relative my-4 mt-8 focus-within:border-blue-500">
         <input
           id="email"
-          type="email"
+          type="text"
           value={email}
           name="email"
           placeholder=" "
@@ -186,7 +186,7 @@ const SignUp = (props) => {
           htmlFor="email"
           className="absolute top-0 -z-1 mt-2 ml-2 duration-500 text-gray-500"
         >
-          Email Address
+          Email
         </label>
       </div>
       {/* SECTION BUSINESS NAME */}

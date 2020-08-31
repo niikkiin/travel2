@@ -32,10 +32,10 @@ const Login = (props) => {
             </h1>
 
             {/* SECTION EMAIL */}
-            <div className="relative my-4 focus-within:border-blue-500">
+            <div className="relative my-4 mt-8 focus-within:border-blue-500">
               <input
                 id="loginEmail"
-                type="email"
+                type="text"
                 value={email}
                 name="email"
                 placeholder=" "
@@ -46,7 +46,7 @@ const Login = (props) => {
                 htmlFor="loginEmail"
                 className="absolute top-0 -z-1 mt-2 ml-2 duration-500 text-gray-500"
               >
-                Email Address
+                Email
               </label>
             </div>
 
@@ -71,7 +71,6 @@ const Login = (props) => {
                 Password is required.
               </p>
             </div>
-
 
             <div className="flex items-center justify-between">
               <button
