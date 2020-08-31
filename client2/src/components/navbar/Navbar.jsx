@@ -25,7 +25,7 @@ const Navbar = (props) => {
     {
       id: 2,
       icon: locationIcon,
-      routePath: "/",
+      routePath: "/messages",
       name: "Messages",
     },
     {
@@ -48,11 +48,11 @@ const Navbar = (props) => {
     },
   ];
   return (
-    <nav className="flex md:flex-col lg:flex-row items-center md:items-start justify-between bg-gray-100 p-1 border-b border-gray-400">
-      <div className="flex justify-between items-center w-full lg:w-1/4">
+    <nav className="flex flex-col lg:flex-row items-center md:items-start justify-between bg-gray-100 p-1 border-b border-gray-400">
+      <div className="my-auto flex justify-between items-center w-full lg:w-1/4">
         {/* logo */}
         <div className="text-base w-auto">
-          <div className="flex items-center mr-6 text-2xl md:mt-4 font-medium min-w-max-content ml-4">
+          <div className="flex items-center mr-6 text-2xl md:mt-1 font-medium min-w-max-content ml-4">
             Logo Goes Here
           </div>
         </div>
@@ -60,7 +60,7 @@ const Navbar = (props) => {
         <div className="block lg:hidden">
           <button
             onClick={(e) => setNavToggle(!navToggle)}
-            className="flex items-center px-3 py-2 border rounded mr-4 my-2 text-gray-800 border-gray-400 hover:text-blue-600 hover:border-white"
+            className="flex items-center px-3 py-2 border rounded mr-4 my-2 text-gray-800 border-gray-400 outline-none active:outline-none active:border focus:outline-none  hover:text-blue-600 hover:border-white"
           >
             <svg
               className="fill-current h-3 w-3"
@@ -76,12 +76,12 @@ const Navbar = (props) => {
 
       {/* new nav on smaller device */}
       {navToggle ? (
-        <div className="lg:hidden text-base flex flex-col">
+        <div className="lg:hidden text-base flex flex-col w-full">
           {navLinks.map((nav) => {
             const { id, icon, routePath, name } = nav;
             return (
-              <Link key={id} to={routePath} className="flex items-center">
-                <InlineIcon icon={icon} className="w-8 h-8" />
+              <Link key={id} to={routePath} className="flex items-center border-gray-400 border-b p-2">
+                <InlineIcon icon={icon} className="w-8 h-8 mr-2" />
                 <div className="text-base">{name}</div>
               </Link>
             );
