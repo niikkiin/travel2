@@ -80,7 +80,7 @@ const Navbar = (props) => {
           {navLinks.map((nav) => {
             const { id, icon, routePath, name } = nav;
             return (
-              <Link key={id} to={routePath} className="flex items-center border-gray-400 border-b p-2">
+              <Link onClick={e => setNavToggle(false)} key={id} to={routePath} className="flex items-center border-gray-400 border-b p-2">
                 <InlineIcon icon={icon} className="w-8 h-8 mr-2" />
                 <div className="text-base">{name}</div>
               </Link>
