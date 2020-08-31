@@ -18,3 +18,13 @@ input[type="text"]:focus-within ~ label,
 input[type="password"]:focus-within ~ label {
   @apply text-blue-500;
 }
+
+input[type='radio']:checked + label {
+  @apply text-blue-500;
+  @apply border-blue-500;
+} 
+
+input[type='radio']:not(:checked) + label {
+  @apply text-gray-400;
+  @apply border-gray-400;
+} 
