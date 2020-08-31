@@ -295,7 +295,11 @@ const SignUp = (props) => {
               <div className="flex items-center justify-between">
                 <button
                   className={
-                    !email || !password
+                    !firstName ||
+                    !lastName ||
+                    !email ||
+                    !password ||
+                    !confirmPassword
                       ? "cursor-not-allowed opacity-50 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                       : "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   }
