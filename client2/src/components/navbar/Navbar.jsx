@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import PropTypes from "prop-types";
 
 // router
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 // icons
 import { Icon, InlineIcon } from "@iconify/react";
@@ -19,7 +19,7 @@ const Navbar = (props) => {
     {
       id: 1,
       icon: homeVariant,
-      routePath: "/",
+      routePath: "/feed",
       name: "Home",
     },
     {
@@ -31,19 +31,19 @@ const Navbar = (props) => {
     {
       id: 3,
       icon: bxPlusCircle,
-      routePath: "/",
+      routePath: "/create",
       name: "Create Post",
     },
     {
       id: 4,
       icon: compassIcon,
-      routePath: "/",
+      routePath: "/profile",
       name: "Profile",
     },
     {
       id: 5,
       icon: bxHeart,
-      routePath: "/",
+      routePath: "/likes",
       name: "Likes",
     },
   ];
@@ -80,10 +80,10 @@ const Navbar = (props) => {
           {navLinks.map((nav) => {
             const { id, icon, routePath, name } = nav;
             return (
-              <Link onClick={e => setNavToggle(false)} key={id} to={routePath} className="flex items-center border-gray-400 border-b p-2">
+              <NavLink onClick={e => setNavToggle(false)} key={id} to={routePath} activeClassName="text-blue-500" className=" transition duration-500 ease-in-out hover:text-blue-500 flex items-center border-gray-400 border-b p-2">
                 <InlineIcon icon={icon} className="w-8 h-8 mr-2" />
                 <div className="text-base">{name}</div>
-              </Link>
+              </NavLink>
             );
           })}
         </div>
@@ -95,9 +95,9 @@ const Navbar = (props) => {
           {navLinks.map((nav) => {
             const { id, icon, routePath } = nav;
             return (
-              <Link key={id} to={routePath} className="inline-block">
+              <NavLink activeClassName="text-blue-500" key={id} to={routePath} className="inline-block transition duration-500 ease-in-out hover:text-blue-500 ">
                 <Icon icon={icon} className="w-10 h-10" />
-              </Link>
+              </NavLink>
             );
           })}
         </div>
@@ -105,7 +105,7 @@ const Navbar = (props) => {
         <div className="hidden lg:block text-base w-3/12">
           <Link
             to="/"
-            className="flex items-center text-xl px-4 py-2 leading-none text-gray-900 border-white hover:text-blue-800 mt-4 lg:mt-0"
+            className="flex items-center text-xl px-4 py-2 leading-none text-gray-900 transition duration-500 ease-in-out border-white hover:text-blue-500 mt-4 lg:mt-0"
           >
             <img
               className="rounded-full border border-gray-400 inset-0 w-12"
