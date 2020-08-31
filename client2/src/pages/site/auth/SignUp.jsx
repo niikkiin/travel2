@@ -264,16 +264,32 @@ const SignUp = (props) => {
           className="border-blue-500 border-t-8"
         >
           <div className="border-b border-l border-r border-gray-300 px-12 py-8 mb-4">
-            <h1 className="text-3xl my-2 mb-8 text-blue-500 font-medium">
-              Sign Up
-            </h1>
             <>
               {userType ? (
-                <div className="text-xl text-gray-600 pb-4 flex items-center">
-                  {userType}
+                <div className="flex items-center mb-8">
+                  <div className="text-gray-400 mr-4 flex hover:text-blue-500 focus:text-blue-500 transition duration-500 ease-in-out" onClick={e => setFormData({ ...formData, userType: ''})}>
+                    <svg
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      className="arrow-narrow-left w-6 h-6"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Back
+                  </div>
+                  <div className="text-left text-xl text-blue-500 font-medium">
+                    {userType} Account Sign Up
+                  </div>
                 </div>
               ) : (
                 <>
+                  <h1 className="text-3xl my-2 mb-8 text-blue-500 font-medium">
+                    Sign Up
+                  </h1>
                   <h2 className="text-xl text-gray-600">Select User Type</h2>
 
                   <div className="flex justify-evenly">
@@ -330,21 +346,15 @@ const SignUp = (props) => {
                   Forgot Password?
                 </Link> */}
                 <div
-                  className="flex items-center align-baseline text-base cursor-pointer font-medium text-gray-500 hover:text-blue-500"
+                  className="align-baseline text-base cursor-pointer font-medium text-gray-500 hover:text-blue-500"
                   onClick={(e) => setFormData({ ...formData, userType: "" })}
                 >
-                  <svg
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    className="arrow-narrow-left w-6 h-6"
+                  <Link
+                    className="inline-block align-baseline font-light text-sm text-blue-500 hover:text-blue-800"
+                    to="/forgot-password"
                   >
-                    <path
-                      fillRule="evenodd"
-                      d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Back
+                    Forgot Password?
+                  </Link>
                 </div>
               </div>
             ) : null}
@@ -355,12 +365,6 @@ const SignUp = (props) => {
                 className="text-blue-500 font-bold hover:text-blue-800"
               >
                 Login Here
-              </Link>
-              <Link
-                className="inline-block align-baseline font-light text-sm text-blue-500 hover:text-blue-800"
-                to="/forgot-password"
-              >
-                Forgot Password?
               </Link>
             </div>
           </div>
