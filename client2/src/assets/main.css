@@ -15980,6 +15980,10 @@ video {
   z-index: auto;
 }
 
+.-z-1 {
+  z-index: -1;
+}
+
 .gap-0 {
   grid-gap: 0;
   gap: 0;
@@ -16820,6 +16824,10 @@ video {
 
 .transform-none {
   transform: none;
+}
+
+.origin-0 {
+  transform-origin: 0%;
 }
 
 .origin-center {
@@ -18641,6 +18649,31 @@ video {
 
 .animate-bounce {
   animation: bounce 1s infinite;
+}
+
+input[type="text"]:focus-within ~ label,
+input[type="text"]:not(:placeholder-shown) ~ label,
+input[type="password"]:focus-within ~ label,
+input[type="password"]:not(:placeholder-shown) ~ label {
+  --transform-translate-x: 0;
+  --transform-translate-y: 0;
+  --transform-rotate: 0;
+  --transform-skew-x: 0;
+  --transform-skew-y: 0;
+  --transform-scale-x: 1;
+  --transform-scale-y: 1;
+  transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+  --transform-scale-x: .75;
+  --transform-scale-y: .75;
+  --transform-translate-y: -2.5rem;
+  --transform-translate-x: -0.5rem;
+}
+
+input[type="text"]:focus-within ~ label,
+input[type="password"]:focus-within ~ label {
+  --text-opacity: 1;
+  color: #4299e1;
+  color: rgba(66, 153, 225, var(--text-opacity));
 }
 
 @media (min-width: 640px) {
@@ -34047,6 +34080,10 @@ video {
     z-index: auto;
   }
 
+  .sm\:-z-1 {
+    z-index: -1;
+  }
+
   .sm\:gap-0 {
     grid-gap: 0;
     gap: 0;
@@ -34887,6 +34924,10 @@ video {
 
   .sm\:transform-none {
     transform: none;
+  }
+
+  .sm\:origin-0 {
+    transform-origin: 0%;
   }
 
   .sm\:origin-center {
@@ -52084,6 +52125,10 @@ video {
     z-index: auto;
   }
 
+  .md\:-z-1 {
+    z-index: -1;
+  }
+
   .md\:gap-0 {
     grid-gap: 0;
     gap: 0;
@@ -52924,6 +52969,10 @@ video {
 
   .md\:transform-none {
     transform: none;
+  }
+
+  .md\:origin-0 {
+    transform-origin: 0%;
   }
 
   .md\:origin-center {
@@ -70121,6 +70170,10 @@ video {
     z-index: auto;
   }
 
+  .lg\:-z-1 {
+    z-index: -1;
+  }
+
   .lg\:gap-0 {
     grid-gap: 0;
     gap: 0;
@@ -70961,6 +71014,10 @@ video {
 
   .lg\:transform-none {
     transform: none;
+  }
+
+  .lg\:origin-0 {
+    transform-origin: 0%;
   }
 
   .lg\:origin-center {
@@ -88158,6 +88215,10 @@ video {
     z-index: auto;
   }
 
+  .xl\:-z-1 {
+    z-index: -1;
+  }
+
   .xl\:gap-0 {
     grid-gap: 0;
     gap: 0;
@@ -88998,6 +89059,10 @@ video {
 
   .xl\:transform-none {
     transform: none;
+  }
+
+  .xl\:origin-0 {
+    transform-origin: 0%;
   }
 
   .xl\:origin-center {

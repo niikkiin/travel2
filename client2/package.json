@@ -6,6 +6,7 @@
     "@iconify/icons-bx": "^1.0.3",
     "@iconify/icons-fa-regular": "^1.0.6",
     "@iconify/icons-fa-solid": "^1.0.12",
+    "@iconify/icons-ic": "^1.0.16",
     "@iconify/icons-tabler": "^1.0.5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",

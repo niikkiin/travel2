@@ -5,14 +5,15 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // pages
-import Messages from "pages/site/messages/Messages";
 import Login from "pages/site/auth/Login";
+import SignUp from "pages/site/auth/SignUp";
+import Messages from "pages/site/messages/Messages";
+import Feed from "pages/site/feed/Feed";
+import Like from "pages/site/likes/Like";
 // const Messages = React.lazy(() => import('./OtherComponent'));
 
 // routes
 import FeedRoutes from "routes/FeedRoutes";
-import Feed from "pages/site/feed/Feed";
-import Like from "pages/site/likes/Like";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <FeedRoutes exact path="/feed" component={Feed} />
         <FeedRoutes exact path="/likes" component={Like} />
         <Route exact path="/" component={Login} />
+        <Route exact path="/register" component={SignUp} />
       </Switch>
     </Router>
   );
