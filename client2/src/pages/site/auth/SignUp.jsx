@@ -114,7 +114,7 @@ const SignUp = (props) => {
       </div>
 
       {/* SECTION CONFIRM PASSWORD */}
-      <div className="relative my-4 mt-8 focus-within:border-blue-500">
+      <div className="relative my-4 mt-8 mb-8 focus-within:border-blue-500">
         <input
           id="confirmPassword"
           type="password"
@@ -227,7 +227,7 @@ const SignUp = (props) => {
       </div>
 
       {/* SECTION CONFIRM PASSWORD */}
-      <div className="relative my-4 mt-8 focus-within:border-blue-500">
+      <div className="relative my-4 mt-8 mb-8 focus-within:border-blue-500">
         <input
           id="confirmPassword"
           type="password"
@@ -258,16 +258,16 @@ const SignUp = (props) => {
 
   return (
     <div className="flex justify-center items-center align-middle h-screen">
-      <div className="w-full max-w-xs sm:max-w-md">
+      <div className="w-full max-w-xs sm:max-w-lg">
         <form
           onSubmit={(e) => handleSubmit(e)}
           className="border-blue-500 border-t-8"
         >
-          <div className="border-b border-l border-r border-gray-300 px-12 py-8 mb-4">
+          <div className="border-b border-l border-r border-gray-300 px-12 py-4 pb-8 mb-3">
             <>
               {userType ? (
-                <div className="flex items-center mb-8">
-                  <div className="text-gray-400 mr-4 flex hover:text-blue-500 focus:text-blue-500 transition duration-500 ease-in-out" onClick={e => setFormData({ ...formData, userType: ''})}>
+                <div className="flex items-center mb-8 -ml-8">
+                  <div className="text-gray-500 mr-4 flex hover:text-blue-500 focus:text-blue-500 transition duration-500 ease-in-out" onClick={e => setFormData({ ...formData, userType: ''})}>
                     <svg
                       viewBox="0 0 20 20"
                       fill="currentColor"
@@ -281,7 +281,7 @@ const SignUp = (props) => {
                     </svg>
                     Back
                   </div>
-                  <div className="text-left text-xl text-blue-500 font-medium">
+                  <div className="text-center flex-1 text-xl text-blue-500 font-medium">
                     {userType} Account Sign Up
                   </div>
                 </div>
@@ -337,7 +337,7 @@ const SignUp = (props) => {
                     !confirmPassword
                   }
                 >
-                  Create an account
+                  Create account
                 </button>
                 {/* <Link
                   className="inline-block align-baseline font-light text-sm text-blue-500 hover:text-blue-800"
@@ -349,15 +349,11 @@ const SignUp = (props) => {
                   className="align-baseline text-base cursor-pointer font-medium text-gray-500 hover:text-blue-500"
                   onClick={(e) => setFormData({ ...formData, userType: "" })}
                 >
-                  <Link
-                    className="inline-block align-baseline font-light text-sm text-blue-500 hover:text-blue-800"
-                    to="/forgot-password"
-                  >
-                    Forgot Password?
-                  </Link>
                 </div>
               </div>
             ) : null}
+            <>
+            {!userType ?
             <div className="text-gray-500 my-4">
               Already have an account?{" "}
               <Link
@@ -367,6 +363,9 @@ const SignUp = (props) => {
                 Login Here
               </Link>
             </div>
+            : null
+          }
+            </>
           </div>
         </form>
         <p className="text-center text-gray-500 text-xs">
