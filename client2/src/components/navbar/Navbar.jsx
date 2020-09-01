@@ -53,7 +53,7 @@ const Navbar = (props) => {
       <div className="my-auto flex justify-between items-center w-full lg:w-1/4">
         {/* logo */}
         <div className="text-base w-auto">
-          <div className="flex items-center mr-6 text-2xl md:mt-1 font-medium min-w-max-content ml-4">
+          <div className="flex items-center ml-10 text-2xl md:mt-1 font-medium min-w-max-content">
             Logo Goes Here
           </div>
         </div>
@@ -97,7 +97,7 @@ const Navbar = (props) => {
             const { id, icon, routePath } = nav;
             return (
               <NavLink activeClassName="text-blue-500" key={id} to={routePath} className="inline-block transition duration-500 ease-in-out hover:text-blue-500 ">
-                <Icon icon={icon} className="w-10 h-10" />
+                <Icon icon={icon} className="w-8 h-8" />
               </NavLink>
             );
           })}
@@ -105,7 +105,7 @@ const Navbar = (props) => {
         {/* profile */}
         <div className="hidden lg:block text-base w-1/4">
           <div
-            className="flex items-center text-xl px-4 py-2 leading-none text-gray-900 transition duration-500 ease-in-out border-white hover:text-blue-500 mt-4 lg:mt-0"
+            className="flex justify-end mr-6 items-center text-xl px-4 py-2 leading-none text-gray-900 transition duration-500 ease-in-out border-white hover:text-blue-500 mt-4 lg:mt-0"
           >
             <img
               className="rounded-full border border-gray-400 inset-0 w-12"
