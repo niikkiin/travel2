@@ -14,7 +14,11 @@ import bxPlusCircle from "@iconify/icons-bx/bx-plus-circle";
 import compassIcon from "@iconify/icons-fa-regular/compass";
 import bxHeart from "@iconify/icons-bx/bx-heart";
 
-const Navbar = (props) => {
+// redux
+import { connect } from 'react-redux';
+import { toggleProfileDropdown } from "store/actions/toggleProfile.action";
+
+const Navbar = ({ toggleProfileDropdown }) => {
   const [navToggle, setNavToggle] = useState(false);
   const navLinks = [
     {
@@ -103,7 +107,7 @@ const Navbar = (props) => {
           })}
         </div>
         {/* profile */}
-        <div className="hidden lg:block text-base w-1/4">
+        <div onClick={toggleProfileDropdown} className="hidden lg:block cursor-pointer text-base w-1/4">
           <div
             className="flex justify-end mr-6 items-center text-xl px-4 py-2 leading-none text-gray-900 transition duration-500 ease-in-out border-white hover:text-blue-500 mt-4 lg:mt-0"
           >
@@ -119,10 +123,11 @@ const Navbar = (props) => {
           </div>
         </div>
       </div>
+      
     </nav>
   );
 };
 
 Navbar.propTypes = {};
 
-export default Navbar;
+export default connect(null, { toggleProfileDropdown })(Navbar);

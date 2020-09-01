@@ -9,15 +9,17 @@ import RoomPanel from "components/messages/RoomPanel";
 const Messages = (props) => {
   return (
     <div className="mt-2 flex">
-      <div className="hidden sm:block h-full w-1/4">
+      <div className="hidden sm:block w-1/4">
         <RoomPanel />
       </div>
-      <div className="h-full mx-2 sm:mx-auto w-full sm:w-4/6">
-        {/* <div className="h-full mx-auto w-5/6 sm:w-4/6 "> */}
-        <div className="mt-4 w-4/4 sm:my-2 sm:container xl:w-3/4">
-          {/* bg-pink-500 sm:bg-purple-500 md:bg-green-500 lg:border-orange-500 xl:bg-blue-500 */}
-          <MessagePanel />
-          <SendMessage />
+      <div className="lg:w-2/4 sm:w-3/4">
+        <div className="h-full mx-8">
+          {/* <div className="h-full mx-auto w-5/6 sm:w-4/6 "> */}
+          <div className="mt-4 sm:my-2 sm:container">
+            {/* bg-pink-500 sm:bg-purple-500 md:bg-green-500 lg:border-orange-500 xl:bg-blue-500 */}
+            <MessagePanel />
+            <SendMessage />
+          </div>
         </div>
       </div>
     </div>

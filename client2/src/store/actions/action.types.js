@@ -1,0 +1,2 @@
+// toggle profile
+export const TOGGLE_PROFILE_DROPDOWN = 'TOGGLE_PROFILE_DROPDOWN';

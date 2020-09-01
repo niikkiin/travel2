@@ -5,8 +5,7 @@ const MessagesLayout = ({ children }) => {
   return (
     <>
       <Navbar />
-
-      {children}
+      <div className="pt-16">{children}</div>
     </>
   );
 };
