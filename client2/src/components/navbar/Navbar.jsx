@@ -2,11 +2,12 @@ import React, { useState } from "react";
 // import PropTypes from "prop-types";
 
 // router
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 // icons
 import { Icon, InlineIcon } from "@iconify/react";
-import cogOutline from "@iconify/icons-mdi/cog-outline";
+// import cogOutline from "@iconify/icons-mdi/cog-outline";
+import arrowDownAlt2 from '@iconify/icons-dashicons/arrow-down-alt2';
 import homeVariant from "@iconify/icons-mdi/home-variant";
 import locationIcon from "@iconify/icons-tabler/location";
 import bxPlusCircle from "@iconify/icons-bx/bx-plus-circle";
@@ -48,7 +49,7 @@ const Navbar = (props) => {
     },
   ];
   return (
-    <nav className="flex flex-col lg:flex-row items-center md:items-start justify-between bg-gray-100 p-1 border-b border-gray-400">
+    <nav className="fixed w-full flex flex-col lg:flex-row items-center md:items-start justify-between z-50 bg-gray-100 p-1 border-b border-gray-400">
       <div className="my-auto flex justify-between items-center w-full lg:w-1/4">
         {/* logo */}
         <div className="text-base w-auto">
@@ -90,7 +91,7 @@ const Navbar = (props) => {
       ) : null}
 
       {/* icons */}
-      <div className="w-3/4 lg:flex hidden">
+      <div className="w-full lg:flex hidden">
         <div className="text-base w-3/4 flex justify-evenly items-center">
           {navLinks.map((nav) => {
             const { id, icon, routePath } = nav;
@@ -102,9 +103,8 @@ const Navbar = (props) => {
           })}
         </div>
         {/* profile */}
-        <div className="hidden lg:block text-base w-3/12">
-          <Link
-            to="/"
+        <div className="hidden lg:block text-base w-1/4">
+          <div
             className="flex items-center text-xl px-4 py-2 leading-none text-gray-900 transition duration-500 ease-in-out border-white hover:text-blue-500 mt-4 lg:mt-0"
           >
             <img
@@ -115,8 +115,8 @@ const Navbar = (props) => {
             <span className="ml-2 min-w-max-content text-2xl md:text-xl font-medium">
               Sam Rose
             </span>
-            <InlineIcon className="w-8 h-8 ml-4" icon={cogOutline} />
-          </Link>
+            <InlineIcon className="w-8 h-8 ml-4" icon={arrowDownAlt2} />
+          </div>
         </div>
       </div>
     </nav>

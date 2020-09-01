@@ -317,7 +317,7 @@ const SignUp = (props) => {
 
             {userType ? (
               <div className="flex items-center justify-between">
-                <button
+                <Link to='/feed'
                   className={
                     !firstName ||
                     !lastName ||
@@ -338,7 +338,7 @@ const SignUp = (props) => {
                   }
                 >
                   Create account
-                </button>
+                </Link>
                 {/* <Link
                   className="inline-block align-baseline font-light text-sm text-blue-500 hover:text-blue-800"
                   to="/forgot-password"

@@ -14,6 +14,7 @@ import Like from "pages/site/likes/Like";
 
 // routes
 import FeedRoutes from "routes/FeedRoutes";
+import MessagesRoutes from "routes/MessagesRoutes";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
 
       {/* routes */}
       <Switch>
-        <FeedRoutes exact path="/messages" component={Messages} />
+        <MessagesRoutes exact path="/messages" component={Messages} />
         <FeedRoutes exact path="/feed" component={Feed} />
         <FeedRoutes exact path="/likes" component={Like} />
         <Route exact path="/" component={Login} />
