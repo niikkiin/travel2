@@ -5,7 +5,7 @@ const PostItem = ({ postData }) => {
   const { postedBy, avatar, businessName, time, title, thumbnail } = postData;
   return (
     <>
-      <div className="text-sm text-gray-800 ml-16">
+      <div className="lg:text-sm text-gray-800 ml-16 text-xs">
         <div className="relative">
           <img
             className="w-16 h-16 rounded-full border border-gray-400 absolute z-0 object-cover"
@@ -26,10 +26,10 @@ const PostItem = ({ postData }) => {
         <span className="text-blue-500 hover:text-blue-800 cursor-pointer duration-500 font-medium">
           {businessName}
         </span>{" "}
-        <span className="text-sm italic font-medium">{time}</span>
+        <span className="italic font-medium">{time}</span>
       </div>
       <div className="max-w-full border border-gray-400 mt-2 mb-16 bg-white ">
-        <div className="text-gray-800 text-2xl flex items-center my-8 ml-20">
+        <div className="text-gray-800 flex items-center my-4 mx-12 text-xl lg:mx-20 lg:my-8  lg:text-2xl">
           {title}
         </div>
 

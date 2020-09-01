@@ -9,7 +9,7 @@ const Posts = (props) => {
   const [postData] = useState(POST_DATA);
 
   return (
-    <div className="flex flex-col mx-auto w-full px-20 py-12">
+    <div className="flex flex-col mx-auto w-full lg:px-20 px-16 py-12">
       {postData.map((post) => (
         <PostItem key={post.id} postData={post} />
       ))}

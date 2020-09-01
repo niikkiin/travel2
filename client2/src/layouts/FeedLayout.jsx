@@ -14,6 +14,7 @@ const FeedLayout = ({ toggleProfileDropdownHidden, children }) => {
       <div className="flex h-full pt-16">
         <LeftSidebar />
         <div className="w-2/4">
+          {/* bg-pink-500 sm:bg-purple-500 md:bg-green-500 lg:border-orange-500 xl:bg-blue-500  */}
           {toggleProfileDropdownHidden ? null : <ProfileDropDown /> }
           {children}
         </div>
