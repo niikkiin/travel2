@@ -49,7 +49,7 @@ const Navbar = (props) => {
     },
   ];
   return (
-    <nav className="fixed w-full flex flex-col lg:flex-row items-center md:items-start justify-between z-50 bg-gray-100 p-1 border-b border-gray-400">
+    <nav className="fixed w-full flex flex-col lg:flex-row items-center md:items-start justify-between z-50 bg-gray-100 px-1 border-b border-gray-400">
       <div className="my-auto flex justify-between items-center w-full lg:w-1/4">
         {/* logo */}
         <div className="text-base w-auto">
