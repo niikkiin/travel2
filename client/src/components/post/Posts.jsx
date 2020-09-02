@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 // import PropTypes from 'prop-types'
 
-// data
-import { POST_DATA } from "data/posts.data";
+
 import PostItem from "./PostItem";
 
-const Posts = (props) => {
-  const [postData] = useState(POST_DATA);
+const Posts = ({postData}) => {
+
 
   return (
     <div className="flex flex-col mx-auto w-full lg:px-20 px-8 md:px-16 py-12">

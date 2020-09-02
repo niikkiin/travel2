@@ -1,14 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 // routes
 import { Link } from "react-router-dom";
 
-// redux
-import { toggleProfileDropdown } from "store/actions/toggleProfile.action";
-import { connect } from "react-redux";
-
-const ProfileDropDown = ({toggleProfileDropdown}) => {
+const ProfileDropDown = () => {
   return (
     <div className="origin-top-right absolute  right-0 mr-10 mt-2 w-56 z-50 rounded-md shadow-lg">
       <div className="rounded-md bg-white shadow-xs">
@@ -48,9 +44,6 @@ const ProfileDropDown = ({toggleProfileDropdown}) => {
   );
 };
 
-ProfileDropDown.propTypes = {
-  toggleProfileDropdown: PropTypes.func.isRequired,
-};
+ProfileDropDown.propTypes = {};
 
-
-export default connect(null, { toggleProfileDropdown })(ProfileDropDown);
+export default ProfileDropDown;

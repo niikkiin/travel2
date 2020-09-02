@@ -9,8 +9,10 @@ import Login from "pages/site/auth/Login";
 import SignUp from "pages/site/auth/SignUp";
 import Messages from "pages/site/messages/Messages";
 import Feed from "pages/site/feed/Feed";
+import Profile from "pages/site/feed/Profile";
 import Like from "pages/site/likes/Like";
 import AccountUpdate from "pages/site/profile/AccountUpdate";
+import ChangePassword from "pages/site/profile/ChangePassword";
 // const Messages = React.lazy(() => import('./OtherComponent'));
 
 // routes
@@ -21,7 +23,6 @@ import ProfileRoutes from "routes/ProfileRoutes";
 // redux
 import { Provider } from "react-redux";
 import store from "store/store";
-import ChangePassword from "pages/site/profile/ChangePassword";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <MessagesRoutes exact path="/messages" component={Messages} />
           <FeedRoutes exact path="/feed" component={Feed} />
           <FeedRoutes exact path="/likes" component={Like} />
+          <FeedRoutes exact path="/profile/me" component={Profile} />
           {/* SECTION account */}
           <ProfileRoutes
             exact
