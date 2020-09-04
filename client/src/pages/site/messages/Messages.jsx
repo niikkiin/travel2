@@ -46,7 +46,7 @@ const Messages = ({ getPost, posts: { post, loading }, match }) => {
   return loading || post === null ? (
     <div>Loading...</div>
   ) : (
-    <div className="mt-2 flex relative">
+    <div className="flex relative">
       <div className="hidden sm:block w-1/4">
         <RoomPanel />
       </div>
