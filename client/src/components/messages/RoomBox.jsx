@@ -15,7 +15,7 @@ const RoomBox = ({info}) => {
   }
   return (
     <div className="border-b border-gray-400 flex">
-      <img src={avatar} alt="name" className="rounded-full border border-gray-400 w-12 h-12 m-3"/>
+      <img src={avatar} alt="name" className="rounded-full border border-gray-400 w-10 h-10 m-2"/>
       <div className="flex flex-col align-middle justify-center">
         {/* status and name */}
         <div className="flex align-middle items-center">

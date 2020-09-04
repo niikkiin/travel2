@@ -122,7 +122,7 @@ const Navbar = ({ toggleProfileDropdown }) => {
           onClick={toggleProfileDropdown}
           className="hidden lg:block cursor-pointer text-base w-1/4"
         >
-          <div className="flex justify-end mr-6 items-center text-xl px-4 py-2 leading-none text-gray-900 transition duration-500 ease-in-out border-white hover:text-blue-500 mt-4 lg:mt-0">
+          <div className="flex justify-end mr-6 items-center text-xl px-4 py-1 leading-none text-gray-900 transition duration-500 ease-in-out border-white hover:text-blue-500 mt-4 lg:mt-0">
             <img
               className="rounded-full border border-gray-400 inset-0 w-12"
               src="https://png.pngtree.com/png-vector/20190217/ourlarge/pngtree-abstract-circle-business-logo-png-image_554233.jpg"

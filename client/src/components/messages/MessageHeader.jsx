@@ -43,10 +43,10 @@ const MessageHeader = ({ post: { postedBy, website, businessName}}) => {
         </div>
       </div>
 
-      <div className="hidden sm:block border-gray-400 border pl-20 sm:pl-20 items-center h-20 pb-4 w-full bg-gray-200 relative">
+      <div className="hidden sm:block border-gray-400 border pl-20 sm:pl-20 items-center h-18 pb-4 w-full bg-gray-200 relative">
         <img
-          className="rounded-full absolute border border-gray-400 inset-0 w-24 sm:w-24"
-          style={{ top: "-10px", left: "-25px" }}
+          className="rounded-full absolute border border-gray-400 inset-0 w-20 sm:w-20"
+          style={{ top: "-5px", left: "-25px" }}
           src="https://png.pngtree.com/png-vector/20190217/ourlarge/pngtree-abstract-circle-business-logo-png-image_554233.jpg"
           alt="user"
         />
@@ -76,7 +76,7 @@ const MessageHeader = ({ post: { postedBy, website, businessName}}) => {
               </div>
             </div>
           </div>
-          <div className="flex items-center sm:mt-2">
+          <div className="flex items-center ">
             <svg
               viewBox="0 0 20 20"
               fill="currentColor"
