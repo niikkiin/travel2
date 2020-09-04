@@ -9,7 +9,52 @@ import CreatePost from "components/create/CreatePost";
 import { OWN_POST_DATA } from "data/posts.data";
 
 const Profile = (props) => {
-  const [postData] = useState(OWN_POST_DATA);
+  const [postData, setPostData] = useState(OWN_POST_DATA);
+
+  const [post, setPost] = useState({
+    caption: "",
+    croppedImage: "",
+  });
+
+  const { caption, croppedImage } = post;
+  const [cropper, setCropper] = useState();
+  const [image, setImage] = useState();
+
+  const getCropData = () => {
+    if (typeof cropper !== "undefined") {
+      setPost({
+        ...post,
+        croppedImage: cropper.getCroppedCanvas().toDataURL(),
+      });
+    }
+  };
+
+  const handlePostSubmit = async (e) => {
+    e.preventDefault();
+
+    // await showCroppedImage();
+    try {
+      setPostData([
+        ...postData,
+        {
+          id: 1,
+          postedBy: "Sam Rose",
+          avatar:
+            "https://png.pngtree.com/png-vector/20190217/ourlarge/pngtree-abstract-circle-business-logo-png-image_554233.jpg",
+          location: "Eco-Tours",
+          time: "just now",
+          title: caption,
+          thumbnail: croppedImage,
+        },
+      ]);
+    } catch (e) {
+      console.error(e);
+    }
+
+    setPost({ caption: "", croppedImage: "" });
+    setImage("");
+  };
+
   return (
     <div className="flex">
       <div className="hidden md:block w-2/4"></div>
@@ -17,7 +62,15 @@ const Profile = (props) => {
         <div className=" px-4 pt-4 pb-2 mx-8 text-3xl text-blue-500">
           Your Posts
         </div>
-        <CreatePost />
+        <CreatePost
+          handlePostSubmit={handlePostSubmit}
+          setPost={setPost}
+          post={post}
+          setCropper={setCropper}
+          getCropData={getCropData}
+          image={image}
+          setImage={setImage}
+        />
         <Posts postData={postData} />
       </div>
     </div>

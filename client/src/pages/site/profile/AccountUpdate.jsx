@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import ChangeAvatar from "./ChangeAvatar";
 // import PropTypes from 'prop-types'
+
+// components
+import ChangeAvatar from "./ChangeAvatar";
+
 
 const AccountUpdate = (props) => {
   const [formData, setFormData] = useState({
@@ -94,10 +97,31 @@ const AccountUpdate = (props) => {
     },
   ];
 
+  // images
+  const avatarOnChange = (e) => {
+    e.preventDefault();
+    let files;
+    if (e.dataTransfer) {
+      files = e.dataTransfer.files;
+    } else if (e.target) {
+      files = e.target.files;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      // setPost({ ...post, image: reader.result });
+      // set(reader.result);
+      setFormData({ ...formData, avatar: reader.result });
+    };
+    reader.readAsDataURL(files[0]);
+  };
+
   return (
     <div className="w-3/4 p-4">
       {/* <h1 className="text-2xl text-blue-500 font-medium">AccountUpdate</h1> */}
-      <ChangeAvatar formData={formData} />
+      <ChangeAvatar
+        formData={formData}
+        avatarOnChange={avatarOnChange}
+      />
       {/* form */}
       <form className="w-full max-w-lg mt-6 ml-6" onSubmit={(e) => handleSubmit(e)}>
         {accountFormData.map((inputData) => {
@@ -131,7 +155,7 @@ const AccountUpdate = (props) => {
           <div className="md:w-1/3"></div>
           <div className="md:w-2/3">
             <button
-              className="mb-4 shadow bg-blue-500 hover:bg-blue-400 focus:bg-blue-400 focus:outline-none text-white font-bold py-2 px-4 rounded"
+              className="mb-4 shadow bg-blue-500 hover:bg-blue-400 focus:bg-blue-400 focus:outline-none text-white font-bold py-2 px-4 rounded-full hover:-translate-y-1 focus:-translate-y-1 transform transition ease-in-out duration-300"
               type="button"
             >
               Update Profile

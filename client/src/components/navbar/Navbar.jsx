@@ -42,7 +42,7 @@ const Navbar = ({ toggleProfileDropdown }) => {
     {
       id: 4,
       icon: compassIcon,
-      routePath: "/profile",
+      routePath: "/profile/me",
       name: "Profile",
     },
     {

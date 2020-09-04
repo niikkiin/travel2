@@ -9,8 +9,8 @@ const Posts = ({postData}) => {
 
   return (
     <div className="flex flex-col mx-auto w-full lg:px-20 px-8 md:px-16 py-12">
-      {postData.map((post) => (
-        <PostItem key={post.id} postData={post} />
+      {postData.map((post, i) => (
+        <PostItem key={i} postData={post} />
       ))}
     </div>
   );
