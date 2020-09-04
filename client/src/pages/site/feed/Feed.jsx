@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-// import PropTypes from 'prop-types'
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 // components
 import Posts from "components/post/Posts";
@@ -8,15 +8,23 @@ import CreatePost from "components/create/CreatePost";
 // data
 import { POST_DATA } from "data/posts.data";
 
-const Feed = (props) => {
+// redux
+import { connect } from "react-redux";
+import { getPosts } from "store/actions/post.action";
+
+const Feed = ({ getPosts, post: { posts, loading } }) => {
+  useEffect(() => {
+    getPosts();
+  }, [getPosts]);
+
+  const [postData, setPostData] = useState(POST_DATA);
+
   const [post, setPost] = useState({
     caption: "",
     croppedImage: "",
   });
 
   const { caption, croppedImage } = post;
-
-  const [postData, setPostData] = useState(POST_DATA);
   const [cropper, setCropper] = useState();
   const [image, setImage] = useState();
 
@@ -71,12 +79,19 @@ const Feed = (props) => {
           image={image}
           setImage={setImage}
         />
-        <Posts postData={postData} />
+        {loading ? <div className="ml-10 text-xl">Loading...</div> : <Posts postData={posts} />}
       </div>
     </div>
   );
 };
 
-Feed.propTypes = {};
+Feed.propTypes = {
+  getPosts: PropTypes.func.isRequired,
+  post: PropTypes.object.isRequired,
+};
 
-export default Feed;
+const mapStateToProps = (state) => ({
+  post: state.post,
+});
+
+export default connect(mapStateToProps, { getPosts })(Feed);

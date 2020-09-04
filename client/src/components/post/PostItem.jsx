@@ -1,8 +1,9 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 // import PropTypes from 'prop-types'
 
-const PostItem = ({ postData }) => {
-  const { postedBy, avatar, businessName, time, title, thumbnail } = postData;
+const PostItem = ({ postData, history }) => {
+  const { id, postedBy, avatar, businessName, time, title, thumbnail } = postData;
   return (
     <>
       <div className="lg:text-sm text-gray-800 ml-16 text-xs">
@@ -28,7 +29,7 @@ const PostItem = ({ postData }) => {
         </span>{" "}
         <span className="italic font-medium">{time}</span>
       </div>
-      <div className="max-w-full border border-gray-400 mt-2 mb-16 bg-white ">
+      <div className="max-w-full border border-gray-400 mt-2 mb-16 bg-white cursor-pointer" onClick={e => history.push(`/messages/${id}`)}>
         <div className="text-gray-800 flex items-center my-4 mx-12 text-xl lg:mx-20 lg:my-8  lg:text-2xl">
           {title}
         </div>
@@ -41,4 +42,4 @@ const PostItem = ({ postData }) => {
 
 PostItem.propTypes = {};
 
-export default PostItem;
+export default withRouter(PostItem);

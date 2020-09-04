@@ -12,6 +12,9 @@ module.exports = {
       zIndex: {
         "-1": "-1",
       },
+      height: {
+        "128": "32rem"
+      }
     },
     screens: {
       sm: "640px",

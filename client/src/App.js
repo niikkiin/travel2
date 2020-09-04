@@ -31,6 +31,7 @@ function App() {
         {/* routes */}
         <Switch>
           <MessagesRoutes exact path="/messages" component={Messages} />
+          <MessagesRoutes exact path="/messages/:id" component={Messages} />
           <FeedRoutes exact path="/feed" component={Feed} />
           <FeedRoutes exact path="/likes" component={Like} />
           <FeedRoutes exact path="/profile/me" component={Profile} />

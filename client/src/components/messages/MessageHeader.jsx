@@ -1,7 +1,7 @@
 import React from "react";
 // import PropTypes from "prop-types";
 
-const MessageHeader = (props) => {
+const MessageHeader = ({ post: { postedBy, website, businessName}}) => {
   return (
     <>
       {/* mobile */}
@@ -26,9 +26,9 @@ const MessageHeader = (props) => {
         />
         <div className="flex justify-between items-center w-full">
           <div className="flex flex-col mr-auto">
-            <div>Samantha Smitt</div>
-            <div className="text-xs">Eco-Tours</div>
-            <div className="text-xs">www.ecotours.com</div>
+            <div>{postedBy}</div>
+  <div className="text-xs">{businessName}</div>
+            <div className="text-xs">{website}</div>
             <div className="italic text-xs">Online 17 hours ago</div>
           </div>
           <div className="flex items-center sm:mt-2">
@@ -55,7 +55,7 @@ const MessageHeader = (props) => {
           <div className="flex flex-row sm:flex-row">
             {/* user info wrapper */}
             <div className="flex flex-col justify-between">
-              <div className="md:text-2xl text-base mt-2">Samantha Smitt</div>
+              <div className="md:text-2xl text-base mt-2">{postedBy}</div>
               <div className="online-status md:text-sm text-xs italic pb-3 sm:pb-2">
                 Online 17 hours ago
               </div>
@@ -63,16 +63,16 @@ const MessageHeader = (props) => {
             {/* business info wrapper */}
             <div className="mt-4 ml-4 pt-1 sm:mt-4 sm:pt-1 sm:ml-4">
               <div
-                className="business-name md:text-2xl text-base"
+                className="business-name md:text-2xl text-base capitalize"
                 style={{ marginTop: "-12px" }}
               >
-                Eco-Tours
+                {businessName}
               </div>
               <div
                 className="website-name text-sm"
                 style={{ marginTop: "-1px" }}
               >
-                www.ecotours.com
+                {website}
               </div>
             </div>
           </div>

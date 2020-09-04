@@ -18,36 +18,44 @@ export const POST_DATA = [
     avatar: profile1,
     businessName: "travelandleisure",
     time: "just now",
+    date: "08/28/20 09:15 PM",
     title: "Eco-Tours destinations 25% off",
     thumbnail: post1,
+    website: 'www.ecto-tours.com',
   },
   {
     id: 3,
     postedBy: "Mary Carrington",
     avatar: profile2,
     businessName: "Jack's flight club",
+    date: "08/28/20 09:15 PM",
     time: "just now",
     title:
       "Direct Flights to Singapore at $468 return, to Australia at 582 return.",
     thumbnail: post2,
+    website: 'www.ecto-tours.com',
   },
   {
     id: 4,
     postedBy: "Mary Carrington",
     avatar: profile5,
+    date: "08/28/20 09:15 PM",
     businessName: "Jack's flight club",
     time: "10m ago",
     title: "New tourist destination now with 10% discount",
     thumbnail: post4,
+    website: 'www.ecto-tours.com',
   },
   {
     id: 5,
     postedBy: "Samantha Collins",
     avatar: profile5,
+    date: "08/28/20 09:15 PM",
     businessName: "Eco-Tours",
     time: "40m ago",
     title: "Visit unique places around the world for only $699",
     thumbnail: post5,
+    website: 'www.ecto-tours.com',
   },
   {
     id: 6,
@@ -55,8 +63,10 @@ export const POST_DATA = [
     avatar: profile3,
     businessName: "Eco-Tours",
     time: "just now",
+    date: "08/28/20 09:15 PM",
     title: "Eco-Tours destinations 30% off",
     thumbnail: post3,
+    website: 'www.ecto-tours.com',
   },
   {
     id: 7,
@@ -64,8 +74,10 @@ export const POST_DATA = [
     avatar: profile1,
     businessName: "travelandleisure",
     time: "just now",
+    date: "08/28/20 09:15 PM",
     title: "Eco-Tours destinations 25% off",
     thumbnail: post1,
+    website: 'www.ecto-tours.com',
   },
   {
     id: 8,
@@ -76,6 +88,8 @@ export const POST_DATA = [
     title:
       "Direct Flights to Singapore at $468 return, to Australia at 582 return.",
     thumbnail: post2,
+    date: "08/28/20 09:15 PM",
+    website: 'www.ecto-tours.com',
   },
   {
     id: 9,
@@ -85,6 +99,8 @@ export const POST_DATA = [
     time: "10m ago",
     title: "New tourist destination now with 10% discount",
     thumbnail: post4,
+    date: "08/28/20 09:15 PM",
+    website: 'www.ecto-tours.com',
   },
   {
     id: 10,
@@ -94,6 +110,8 @@ export const POST_DATA = [
     time: "40m ago",
     title: "Visit unique places around the world for only $699",
     thumbnail: post5,
+    date: "08/28/20 09:15 PM",
+    website: 'www.ecto-tours.com',
   },
   {
     id: 11,
@@ -103,6 +121,8 @@ export const POST_DATA = [
     time: "just now",
     title: "Eco-Tours destinations 30% off",
     thumbnail: post3,
+    date: "08/28/20 09:15 PM",
+    website: 'www.ecto-tours.com',
   },
   {
     id: 12,
@@ -112,6 +132,8 @@ export const POST_DATA = [
     time: "just now",
     title: "Eco-Tours destinations 30% off",
     thumbnail: post4,
+    date: "08/28/20 09:15 PM",
+    website: 'www.ecto-tours.com',
   },
 ];
 export const POST_ONE = [
@@ -119,11 +141,13 @@ export const POST_ONE = [
     id: 2,
     postedBy: "Bob Martin",
     avatar: profile1,
-    location: "travelandleisure",
+    businessName: "travelandleisure",
+    website: 'www.ecto-tours.com',
     time: "just now",
     timestamp: "10:54PM August 01, 2020",
     title: "Eco-Tours destinations 25% off",
     thumbnail: post1,
+    date: "08/28/20 09:15 PM",
   },
 ];
 
@@ -136,6 +160,7 @@ export const OWN_POST_DATA = [
     time: "just now",
     title: "Eco-Tours destinations 30% off",
     thumbnail: post3,
+    date: "08/28/20 09:15 PM",
   },
   {
     id: 5,
@@ -145,5 +170,6 @@ export const OWN_POST_DATA = [
     time: "40m ago",
     title: "Visit unique places around the world for only $699",
     thumbnail: post5,
+    date: "08/28/20 09:15 PM",
   },
 ];
