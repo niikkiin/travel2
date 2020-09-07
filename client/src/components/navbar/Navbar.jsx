@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 
 // router
@@ -16,10 +16,20 @@ import bxHeart from "@iconify/icons-bx/bx-heart";
 
 // redux
 import { connect } from "react-redux";
-import { toggleProfileDropdown } from "store/actions/toggleProfile.action";
+import { toggleProfileDropdown } from "store/actions/toggle.action";
 
-const Navbar = ({ toggleProfileDropdown }) => {
+// utilities
+import useOutsideClick from "utilities/useOutsideClick";
+
+const Navbar = ({ toggleProfileDropdown, open }) => {
   const [navToggle, setNavToggle] = useState(false);
+
+  const openNavToggleRef = useRef();
+
+  useOutsideClick(openNavToggleRef, () => {
+    if (navToggle) setNavToggle(false);
+  });
+
   const navLinks = [
     {
       id: 1,
@@ -52,6 +62,12 @@ const Navbar = ({ toggleProfileDropdown }) => {
       name: "Likes",
     },
   ];
+
+  const togglePDropdown = (open) => {
+    if(open) {
+      toggleProfileDropdown();
+    }
+  }
   return (
     <nav className="fixed w-full flex flex-col lg:flex-row items-center md:items-start justify-between z-50 bg-gray-100 px-1 border-b border-gray-400">
       <div className="my-auto flex justify-between items-center w-full lg:w-1/4">
@@ -80,8 +96,8 @@ const Navbar = ({ toggleProfileDropdown }) => {
       </div>
 
       {/* new nav on smaller device */}
-      {navToggle ? (
-        <div className="lg:hidden text-base flex flex-col w-full">
+      {navToggle && (
+        <div ref={openNavToggleRef} className="lg:hidden text-base flex flex-col w-full">
           {navLinks.map((nav) => {
             const { id, icon, routePath, name } = nav;
             return (
@@ -98,7 +114,7 @@ const Navbar = ({ toggleProfileDropdown }) => {
             );
           })}
         </div>
-      ) : null}
+      )}
 
       {/* icons */}
       <div className="w-full lg:flex hidden">
@@ -111,6 +127,7 @@ const Navbar = ({ toggleProfileDropdown }) => {
                 key={id}
                 to={routePath}
                 className="inline-block transition duration-500 ease-in-out hover:text-blue-500 "
+                onClick={() => togglePDropdown(open) }
               >
                 <Icon icon={icon} className="w-8 h-8" />
               </NavLink>
@@ -141,6 +158,11 @@ const Navbar = ({ toggleProfileDropdown }) => {
 
 Navbar.propTypes = {
   toggleProfileDropdown: PropTypes.func.isRequired,
+  open: PropTypes.bool,
 };
 
-export default connect(null, { toggleProfileDropdown })(Navbar);
+const mapStateToProps = (state) => ({
+  open: state.toggle.open
+})
+
+export default connect(mapStateToProps, { toggleProfileDropdown })(Navbar);

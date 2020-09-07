@@ -9,6 +9,7 @@ import fileGifLine from "@iconify/icons-ri/file-gif-line";
 // cropper
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
+import { connect } from "react-redux";
 
 const CreatePost = ({
   handlePostSubmit,
@@ -17,7 +18,8 @@ const CreatePost = ({
   setCropper,
   getCropData,
   image,
-  setImage
+  setImage,
+  loadingCreatePost
 }) => {
   const { caption } = post;
 
@@ -25,7 +27,6 @@ const CreatePost = ({
     setPost({ ...post, [e.target.name]: e.target.value });
   };
 
-  
   const imageOnChange = (e) => {
     e.preventDefault();
     let files;
@@ -124,13 +125,26 @@ const CreatePost = ({
               type="submit"
               onClick={getCropData}
               disabled={!caption || !image}
-              className={!caption || !image ?
-                `bg-blue-500 hover:bg-blue-600 focus:bg-blue-600 px-4 text-white duration-500 font-medium rounded-full hover:-translate-y-1 focus:-translate-y-1 transform transition ease-in-out outline-none hover:outline-none focus:outline-none cursor-not-allowed opacity-50`
-                :
-                `bg-blue-500 hover:bg-blue-700 focus:bg-blue-600 cursor-pointer px-4 text-white hover:-translate-y-1 focus:-translate-y-1 transform transition ease-in-out duration-300 font-medium rounded-full outline-none hover:outline-none focus:outline-none`
-              
-            }
+              className={
+                !caption || !image
+                  ? `flex  items-center bg-blue-500 hover:bg-blue-600 focus:bg-blue-600 px-4 text-white duration-500 font-medium rounded-full hover:-translate-y-1 focus:-translate-y-1 transform transition ease-in-out outline-none hover:outline-none focus:outline-none cursor-not-allowed opacity-50`
+                  : `flex  items-center bg-blue-500 hover:bg-blue-700 focus:bg-blue-600 cursor-pointer px-4 text-white hover:-translate-y-1 focus:-translate-y-1 transform transition ease-in-out duration-300 font-medium rounded-full outline-none hover:outline-none focus:outline-none`
+              }
             >
+              { loadingCreatePost ?
+              <svg
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="question-mark-circle w-6 h-6 animate-spin mr-2"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            : null  
+            }
               Create Post
             </button>
           </div>
@@ -142,4 +156,7 @@ const CreatePost = ({
 
 CreatePost.propTypes = {};
 
-export default CreatePost;
+const mapStateToProps = (state) => ({
+  loadingCreatePost: state.post.loading
+})
+export default connect(mapStateToProps)(CreatePost);

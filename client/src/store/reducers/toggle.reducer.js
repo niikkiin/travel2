@@ -1,7 +1,7 @@
 import { TOGGLE_PROFILE_DROPDOWN } from "store/actions/action.types";
 
 const INITIAL_STATE = {
-  hidden: true,
+  open: false,
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -9,7 +9,7 @@ export default function(state = INITIAL_STATE, action) {
   switch (type) {
     case TOGGLE_PROFILE_DROPDOWN:
       return {
-        hidden: !state.hidden,
+        open: !state.open,
       };
     default:
       return state;

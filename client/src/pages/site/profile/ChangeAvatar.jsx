@@ -6,7 +6,7 @@ const ChangeAvatar = ({
   formData: { avatar, firstName, lastName },
 }) => {
   return (
-    <div className="flex items-center max-w-lg justify-center pt-4">
+    <div className="flex items-center max-w-lg justify-center py-4">
       <img
         className="rounded-full border object-cover w-12 h-12"
         src={avatar}

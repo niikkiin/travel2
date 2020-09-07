@@ -5,19 +5,14 @@ import PropTypes from "prop-types";
 import Posts from "components/post/Posts";
 import CreatePost from "components/create/CreatePost";
 
-// data
-import { POST_DATA } from "data/posts.data";
-
 // redux
 import { connect } from "react-redux";
-import { getPosts } from "store/actions/post.action";
+import { getPosts, createPost } from "store/actions/post.action";
 
-const Feed = ({ getPosts, post: { posts, loading } }) => {
+const Feed = ({ getPosts, post: { posts, loading }, createPost }) => {
   useEffect(() => {
     getPosts();
   }, [getPosts]);
-
-  const [postData, setPostData] = useState(POST_DATA);
 
   const [post, setPost] = useState({
     caption: "",
@@ -40,21 +35,18 @@ const Feed = ({ getPosts, post: { posts, loading } }) => {
   const handlePostSubmit = async (e) => {
     e.preventDefault();
 
-    // await showCroppedImage();
     try {
-      setPostData([
-        ...postData,
-        {
-          id: 1,
-          postedBy: "Sam Rose",
-          avatar:
-            "https://png.pngtree.com/png-vector/20190217/ourlarge/pngtree-abstract-circle-business-logo-png-image_554233.jpg",
-          location: "Eco-Tours",
-          time: "just now",
-          title: caption,
-          thumbnail: croppedImage,
-        },
-      ]);
+      const formData = {
+        id: 1,
+        postedBy: "Sam Rose",
+        avatar:
+          "https://png.pngtree.com/png-vector/20190217/ourlarge/pngtree-abstract-circle-business-logo-png-image_554233.jpg",
+        location: "Eco-Tours",
+        time: "just now",
+        title: caption,
+        thumbnail: croppedImage,
+      }
+      createPost(formData);
     } catch (e) {
       console.error(e);
     }
@@ -79,7 +71,11 @@ const Feed = ({ getPosts, post: { posts, loading } }) => {
           image={image}
           setImage={setImage}
         />
-        {loading ? <div className="ml-10 text-xl">Loading...</div> : <Posts postData={posts} />}
+        {loading ? (
+          <div className="ml-10 text-xl">Loading...</div>
+        ) : (
+          <Posts postData={posts} />
+        )}
       </div>
     </div>
   );
@@ -88,10 +84,11 @@ const Feed = ({ getPosts, post: { posts, loading } }) => {
 Feed.propTypes = {
   getPosts: PropTypes.func.isRequired,
   post: PropTypes.object.isRequired,
+  createPost: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   post: state.post,
 });
 
-export default connect(mapStateToProps, { getPosts })(Feed);
+export default connect(mapStateToProps, { getPosts, createPost })(Feed);

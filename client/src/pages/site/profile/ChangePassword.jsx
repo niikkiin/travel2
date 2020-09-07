@@ -49,7 +49,7 @@ const ChangePassword = (props) => {
 
       {/* form */}
       <form
-        className="w-full max-w-lg mt-6 ml-6"
+        className="w-full"
         onSubmit={(e) => handleSubmit(e)}
       >
         {accountFormData.map((inputData) => {

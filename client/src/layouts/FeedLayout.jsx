@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
+import PropTypes from "prop-types";
+
+// components
 import Navbar from "components/navbar/Navbar";
 import { RightSidebar } from "components/sidebar/RightSidebar";
 import { LeftSidebar } from "components/sidebar/LeftSidebar";
@@ -6,9 +9,19 @@ import ProfileDropDown from "components/navbar/ProfileDropDown";
 
 // redux
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import { toggleProfileDropdown } from "store/actions/toggle.action";
 
-const FeedLayout = ({ toggleProfileDropdownHidden, children }) => {
+// utilities
+import useOutsideClick from "utilities/useOutsideClick";
+
+const FeedLayout = ({ toggleProfileDropdown, open, children }) => {
+
+  const openDropdownRef = useRef();
+
+  useOutsideClick(openDropdownRef, () => {
+    if (open) toggleProfileDropdown(false);
+  });
+
   return (
     <>
       <Navbar />
@@ -16,7 +29,11 @@ const FeedLayout = ({ toggleProfileDropdownHidden, children }) => {
         <LeftSidebar />
         <div className="w-full lg:w-3/4">
           {/* bg-pink-500 sm:bg-purple-500 md:bg-green-500 lg:border-orange-500 xl:bg-blue-500  */}
-          {toggleProfileDropdownHidden ? null : <ProfileDropDown />}
+          {open && (
+          <div className="ease-in-out duration-300 transition fade" ref={openDropdownRef}>
+            <ProfileDropDown />
+          </div>
+        )}
           {children}
         </div>
         <RightSidebar />
@@ -27,9 +44,11 @@ const FeedLayout = ({ toggleProfileDropdownHidden, children }) => {
 
 FeedLayout.propTypes = {
   toggleProfileDropdownHidden: PropTypes.bool,
+  toggleProfileDropdown: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  toggleProfileDropdownHidden: state.toggleProfileDropdown.hidden,
+  open: state.toggle.open
 });
-export default connect(mapStateToProps)(FeedLayout);
+
+export default connect(mapStateToProps, { toggleProfileDropdown })(FeedLayout);

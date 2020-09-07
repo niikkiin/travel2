@@ -116,14 +116,16 @@ const AccountUpdate = (props) => {
   };
 
   return (
-    <div className="w-3/4 p-4">
+    <div className="w-full p-4 md:-ml-10">
+    {/* <div className="w-3/4 p-4"></div> */}
       {/* <h1 className="text-2xl text-blue-500 font-medium">AccountUpdate</h1> */}
       <ChangeAvatar
         formData={formData}
         avatarOnChange={avatarOnChange}
       />
       {/* form */}
-      <form className="w-full max-w-lg mt-6 ml-6" onSubmit={(e) => handleSubmit(e)}>
+      <form className="w-full" onSubmit={(e) => handleSubmit(e)}>
+      {/* <form className="w-full max-w-lg mt-6 ml-6" onSubmit={(e) => handleSubmit(e)}> */}
         {accountFormData.map((inputData) => {
           const { id, inputName, inputValue, label } = inputData;
           return (
@@ -131,7 +133,7 @@ const AccountUpdate = (props) => {
               <div className="md:w-1/3">
                 <label
                   className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-                  for={`profile${inputName}`}
+                  htmlFor={`profile${inputName}`}
                 >
                   {label}
                 </label>
